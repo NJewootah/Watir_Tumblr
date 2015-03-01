@@ -61,6 +61,19 @@ browser.div(class: "creator").click
 browser.div(class: "post_control delete show_label").click
 browser.button(class: "ui_button btn_1").click
 
+#-------------------------------------------------------------------
+
+#Quote
+browser.i(class: "icon_post_quote").click
+browser.div(class: "editor-plaintext").send_keys("Nini is Awesome!")
+browser.div(class: "editor-richtext").send_keys("Nini has always been Awesome!")
+
+#link
+browser.i(class: "icon_post_link").click
+browser.div(class: "editor-plaintext")[1].send_keys("http://google.com")
+browser.button(class: "create_post_button disabled").wait_while_present
+browser.button(class: "create_post_button").click
+
 #Photo
 #open photo link
 browser.i(class: "icon_post_photo").click
@@ -73,21 +86,6 @@ wait_nav_list.wait_until_present
 
 #browser.div(class: "photo-media-container--can-add").wait_until_present
 
-#photo via file
-browser.file_field(name: "photo").set("C:/Users/Academy5/Pictures/Sparta logo.png")
-
-
-#Quote
-browser.i(class: "icon_post_quote").click
-browser.div(class: "editor-plaintext").send_keys("Nini is Awesome!")
-browser.div(class: "editor-richtext").send_keys("Nini has always been Awesome!")
-
-#link
-browser.i(class: "icon_post_link").click
-browser.div(class: "editor-plaintext")[1].send_keys("http://google.com")
-browser.button(class: "create_post_button disabled").wait_while_present
-
-
 #video via url
 browser.i(class: "icon_post_video").click
 browser.div(class: "dropzone-add-url-icon").click
@@ -96,12 +94,16 @@ browser.element(class: "editor-plaintext").send_keys(:enter)
 browser.iframe(class: "embed iframe").wait_until_present
 browser.button(class: "create_post_button").click
 
-#video
+#video via file
 browser.file_field(name: "video").set("C:/Users/Academy5/Videos/west.mp4")
 browser.video(class: "vjs-tech").wait_until_present
 browser.span(class: "binary_switch_button").click
 
-#audio
+#audio via file
 browser.file_field(name: "audio").set("C:/Users/Academy5/Music/sexbomb.mp3")
 browser.div(class: "audio_player_overlay").wait_until_present
 browser.span(class: "binary_switch_button").click
+
+#photo via file
+browser.file_field(name: "photo").set("C:/Users/Academy5/Pictures/Sparta logo.png")
+browser.button(class: "create_post_button").click
