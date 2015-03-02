@@ -1,31 +1,3 @@
-class WatirTumblr
-	require 'Watir'
-
-  def initialize(media)
-  end
-
-  def set_env(web_browser,username,password)
-    browser = Watir::Browser.new :web_browser
-    browser.goto "http://tumblr.com/login"
-    browser.text_field(placeholder: "Email").send_keys(username)
-    browser.text_field(placeholder: "Password").send_keys(password)
-    browser.button(id: "signup_forms_submit").click
-  end
-
-  def wait(element,attribute,value)
-    browser.element(attribute: value).wait_until_present
-  end
-
-  def handle_media(media)
-
-  end
-
-  def 
-
-
-end
-
-
 require 'Watir'
 
 browser = Watir::Browser.new :ff
@@ -78,7 +50,7 @@ browser.button(class: "create_post_button").click
 #open photo link
 browser.i(class: "icon_post_photo").click
 browser.div(class: "dropzone-add-url-icon").click
-browser.div(class: "editor-plaintext").send_keys("http://cdn1.theweek.co.uk/sites/theweek/files/3_liverpool_players_mark_hillsborough_tragedy_25_years_on.jpg")
+browser.div(class: "editor-plaintext").send_keys("https://pbs.twimg.com/profile_images/1847862599/Grad_LFC_Crest_twitter_400x400.jpg")
 browser.element(class: "editor-plaintext").send_keys(:enter)
 browser.button(class: "editor-richtext").wait_until_present
 browser.button(class: "create_post_button").click
@@ -107,3 +79,4 @@ browser.span(class: "binary_switch_button").click
 #photo via file
 browser.file_field(name: "photo").set("C:/Users/Academy5/Pictures/Sparta logo.png")
 browser.button(class: "create_post_button").click
+
