@@ -1,5 +1,5 @@
 class WatirTumblr
-	require 'Watir'
+  require 'Watir'
   attr_accessor :browser
 
   def initialize(web_browser)
@@ -93,3 +93,6 @@ class WatirTumblr
     end
   end
 end
+
+class child << WatirTumblr
+
